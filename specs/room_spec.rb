@@ -63,4 +63,11 @@ class RoomTest < MiniTest::Test
      assert_equal(6, actual)
    end
 
+   def test_guest_checked_in__max_capacity()
+    for guest in (1..7)         #tries to add 7 guests to the array
+      @room.guest_check_in(@guest)
+    end
+    assert_equal(6, @room.guest_count)
+  end
+
 end
