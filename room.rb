@@ -22,4 +22,13 @@ class Room
    return guest_count
  end
 
+  def song_count()
+   @songs.length()
+  end
+
+ def add_song(new_song)
+    @songs << new_song
+    return song_count
+  end
+
 end
