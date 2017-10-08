@@ -11,7 +11,8 @@ class RoomTest < MiniTest::Test
     @guest = Guest.new("Pablito", 200000, "La donna e mobile")
     @guest1 = Guest.new("Gustavo", 5, "La cucaracha")
     @guests = []
-    @song = Song.new("My Heart Will Go On", "Celine Dion")
+    @song = Song.new("La donna e mobile", "Celine Dion")
+    @song1 = Song.new("La cucaracha", "NN")
     @songs = []
   end
 
@@ -68,6 +69,13 @@ class RoomTest < MiniTest::Test
       @room.guest_check_in(@guest)
     end
     assert_equal(6, @room.guest_count)
+  end
+
+  def test_fave_song_on_playlist()
+    @room.guest_check_in(@guest)
+    @room.add_song(@song)
+    actual = @room.fave_song_on_playlist
+    assert_equal("Whoo", actual)
   end
 
 end
